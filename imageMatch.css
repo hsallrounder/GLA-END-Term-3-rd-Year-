@@ -5,14 +5,18 @@
   }
   
   body {
-    height: 120vh;
+    height: 100vh;
     display: flex;
     background: linear-gradient(110deg, #828282, #ffca0b);
   }
   
   .tiral_div{
-    
+    margin: auto;
   }
+  h1{
+    margin: auto;
+  }
+
   .image-match {
     width: 900px;
     height: 500px;
@@ -28,6 +32,7 @@
     margin: 5px;
     position: relative;
     transform: scale(1);
+    border: 5px solid black;
     transform-style: preserve-3d;
     transition: transform .5s;
     box-shadow: 1px 1px 1px rgba(0,0,0,.3);

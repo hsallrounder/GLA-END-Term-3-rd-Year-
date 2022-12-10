@@ -2,55 +2,69 @@ const cards = document.querySelectorAll('.image-card');
 
 let hasFlippedCard = false;
 let lockBoard = false;
-let firstCard, secondCard;
+let card1, card2;
 
-function flipCard() {
+function cardFlip() {
   if (lockBoard) return;
-  if (this === firstCard) return;
+  if (this === card1) return;
 
   this.classList.add('flip');
 
   if (!hasFlippedCard) {
     // first click
     hasFlippedCard = true;
-    firstCard = this;
+    card1 = this;
 
     return;
   }
 
   // second click
-  secondCard = this;
-
-  checkForMatch();
+  card2 = this;
+  var value=document.getElementById('trials').innerHTML;
+  var new_count=(value.charAt(value.length - 1)-'0') - 1;
+  var new_value=value.substring(0, value.length - 1)+new_count;
+  document.getElementById('trials').innerHTML=new_value;
+  match_check();
+  if(checkfortrials()){
+    alert("Game Over");
+    window.location.reload();
+  }
 }
 
-function checkForMatch() {
-  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+function checkfortrials(){
+  var value=document.getElementById('trials').innerHTML;
+  var count=value.charAt(value.length - 1)-'0';
+  console.log(count==0);
+  return count==0;
+}
 
-  isMatch ? disableCards() : unflipCards();
+function match_check() {
+  let isMatch = card1.dataset.framework === card2.dataset.framework;
+
+  isMatch ? disableCards() : uncardFlips();
 }
 
 function disableCards() {
-  firstCard.removeEventListener('click', flipCard);
-  secondCard.removeEventListener('click', flipCard);
+  card1.removeEventListener('click', cardFlip);
+  card2.removeEventListener('click', cardFlip);
 
-  resetBoard();
+  reset();
 }
 
-function unflipCards() {
+function uncardFlips() {
   lockBoard = true;
 
   setTimeout(() => {
-    firstCard.classList.remove('flip');
-    secondCard.classList.remove('flip');
+    card1.classList.remove('flip');
+    card2.classList.remove('flip');
 
-    resetBoard();
+    reset();
   }, 1000);
 }
 
-function resetBoard() {
+function reset() {
   [hasFlippedCard, lockBoard] = [false, false];
-  [firstCard, secondCard] = [null, null];
+  [card1, card2] = [null, null];
 }
 
 (function shuffle() {
@@ -60,4 +74,4 @@ function resetBoard() {
   });
 })();
 
-cards.forEach(card => card.addEventListener('click', flipCard));
+cards.forEach(card => card.addEventListener('click', cardFlip));

@@ -1,3 +1,30 @@
 body {
     background: linear-gradient(110deg, #828282, #ffca0b);
-  }
+}
+
+h1{
+    color: black;
+}
+
+.res {
+    max-width: 125%;
+    margin-right: auto;
+    margin-left: auto;
+    height: auto;
+}
+
+img {
+    padding: 0px;
+}
+
+.displayBox {
+    width: 100%;
+    font-family:  Geneva, Tahoma, sans-serif
+}
+
+.scroll-box {
+    overflow-y: auto;
+    height: 500px;
+    float: left;
+    padding: 1rem;
+}

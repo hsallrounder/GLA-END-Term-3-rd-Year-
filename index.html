@@ -1,16 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript Playground</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/9664c8b16b.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <body>
-    
-    <a href="imageMatch.html" >Next</a>
+    <div class="container" style="margin-top: 20px; border-style:none;">
+        <div class="row" style="margin-top: 40px;">
+
+            <!--Main Content Area-->
+            <img src="/images/1670663568.png" class="res"
+                style="width: 98%; border-color: transparent; border-style: none;">
+            <div class="col-md-8" style="margin-top: 40px;">
+                <div class="card mb-4">
+                    <h2 class="c-head" id="fileName">Book Title</h2>
+                    <div class="c-body">
+                        <div class="displayBox scroll-box" id="fileContent">
+                            Select a book on the right
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" style="margin-top: 36px;">
+                <!--Search Widget-->
+                <div class="card my-4">
+                    <h5 class="c-head">Search</h5>
+                    <div class="c-body">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="keyword" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="button" onclick="performMark()">Search</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-footer" id="searchstat">
+
+                    </div>
+                </div>
+
+                <!--Select a Book Widget -->
+                <div class="card my-4">
+                    <h5 class="c-head">Select a Book</h5>
+                    <div class="c-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#"
+                                            onclick="load('AliceInWonderland.txt','Alice in Wonderland')">Alice in
+                                            Wonderland</a></li>
+                                    <li><a href="#" onclick="load('LOTR.txt','Lord of the Rings')">Lord of the
+                                            Rings</a></li>
+                                    <li><a href="#" onclick="load('JekyllAndHyde.txt','Dr Jekyll and Mr. Hyde')">Dr
+                                            Jekyll and Mr. Hyde</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Most Used Words-->
+                <div class="card my-4">
+                    <h5 class="c-head">Most Used Words</h5>
+                    <div class="c-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="list-unstyled mb-0" id="mostUsed">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Least Used Words -->
+                <div class="card my-4">
+                    <h5 class="c-head">Least Used Words</h5>
+                    <div class="c-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul class="list-unstyled mb-0" id="leastUsed">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Document Stats-->
+                <div class="card my-4">
+                    <h5 class="c-head">Document Stats</h5>
+                    <div class="c-body">
+                        <ul class="list-unstyled mb-0">
+                            <li id="docLength"></li>
+                            <li id="wordCount"></li>
+                            <li id="charCount"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="next">
+            <h2><a href="./new.html">Next</a></h2>
+        </div>
+
+        <script src="script.js"></script>
+        <script id="template-ul-items" type="text/template">
+            <li>
+               {{val}}
+            </li>    
+        </script>
+
 </body>
 
-<script src="script.js"></script>
 </html>

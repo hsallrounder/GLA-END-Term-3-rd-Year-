@@ -43,3 +43,5 @@ const removeWords = [ "a", "able", "about", "across", "after", "all", "almost", 
 The link to the google form is: Click Here For Submission Form
 In case click doesn't work you can copy paste the following link in your browser for submission of the project:
 https://forms.gle/X9vrh6KMkd6obiZV6
+
+Live Link: https://superlative-medovik-4dc46f.netlify.app/
